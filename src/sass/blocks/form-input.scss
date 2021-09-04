@@ -1,0 +1,82 @@
+.form-input {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  &--amount .form-input__field {
+    font-weight: 500;
+
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+
+      appearance: none;
+    }
+  }
+
+  &--select .form-input__field {
+    padding-right: 40px;
+
+    font-size: 30px;
+    text-align: left;
+
+    cursor: pointer;
+
+    appearance: none;
+  }
+
+  &--calendar {
+    .form-input__icon {
+      top: 7px;
+    }
+
+    .form-input__field {
+      padding-top: 3px;
+      padding-right: 63px;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.form-input__label {
+  margin-bottom: 22px;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.form-input__field {
+  width: 100%;
+  min-width: 0;
+  max-width: 390px;
+  height: 60px;
+  margin: 0;
+  padding: 0 14px;
+
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: $special-black;
+
+  background-color: $basic-white;
+  border: 1px solid $basic-black;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 4px 0 $basic-blue inset;
+  }
+}
+
+.form-input__icon {
+  position: absolute;
+  top: 26px;
+  right: 17px;
+
+  pointer-events: none;
+}

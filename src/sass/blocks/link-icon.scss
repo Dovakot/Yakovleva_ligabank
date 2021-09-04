@@ -1,0 +1,16 @@
+.link-icon {
+  position: relative;
+
+  padding-left: 30px;
+
+  font-weight: inherit;
+  color: $basic-black;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    fill: $basic-black;
+  }
+}

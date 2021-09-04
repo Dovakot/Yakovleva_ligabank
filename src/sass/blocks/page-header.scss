@@ -1,0 +1,14 @@
+.page-header {
+  min-height: 91px;
+  padding-top: 26px;
+  padding-bottom: 20px;
+
+  background-color: $basic-light-blue;
+}
+
+.page-header__container {
+  display: grid;
+  grid-template-columns: 149px 1fr;
+  grid-column-gap: 58px;
+  align-items: start;
+}

@@ -1,0 +1,22 @@
+@mixin list-unstyled {
+  margin: 0;
+  padding-left: 0;
+
+  list-style: none;
+}
+
+@mixin small-text {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-size: 12px;
+  line-height: 17px;
+  color: $basic-gray;
+}
+
+@mixin background-sales-pitch($image) {
+  background-image: url($image),
+    linear-gradient(180.24deg, transparent 32.89%, $special-dark-blue 99.79%),
+    linear-gradient(183.47deg, transparent 27.26%, $special-blue 97.14%),
+    linear-gradient(183.47deg, transparent 66.3%, $special-blue 97.14%);
+}

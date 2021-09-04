@@ -1,0 +1,38 @@
+.social {
+  @include list-unstyled;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social__item {
+  margin-bottom: 10px;
+
+  &:not(:first-child) {
+    margin-left: 15px;
+  }
+}
+
+.social__link {
+  display: block;
+
+  &:hover {
+    color: $basic-blue;
+
+    svg {
+      fill: $basic-blue;
+    }
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  svg {
+    display: inherit;
+
+    fill: $basic-black;
+  }
+}

@@ -1,5 +1,24 @@
-body {
-  margin: 0;
-  background-color: #2c36f2;
-  color: #ffffff;
-}
+@import "normalize.css/normalize";
+@import "./global/variables";
+@import "./global/mixins";
+@import "./global/fonts";
+@import "./global/common";
+@import "./blocks/visually-hidden";
+@import "./blocks/container";
+@import "./blocks/button";
+@import "./blocks/link-icon";
+@import "./blocks/page-logo";
+@import "./blocks/title";
+@import "./blocks/form-input";
+@import "./blocks/nav";
+@import "./blocks/additional-nav";
+@import "./blocks/copyright";
+@import "./blocks/contacts";
+@import "./blocks/social";
+@import "./blocks/sales-pitch";
+@import "./blocks/currency-converter";
+@import "./blocks/conversion-history";
+@import "./blocks/page";
+@import "./blocks/page-header";
+@import "./blocks/page-main";
+@import "./blocks/page-footer";

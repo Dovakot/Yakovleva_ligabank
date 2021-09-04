@@ -1,0 +1,39 @@
+.currency-converter__title {
+  margin-bottom: 49px;
+}
+
+.currency-converter__form {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 85px 120px;
+}
+
+.currency-converter__fieldset {
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: 390px 120px;
+  grid-column-gap: 15px;
+  align-items: end;
+
+  border: none;
+}
+
+.currency-converter__icon {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+
+  margin-left: -23px;
+}
+
+.currency-converter__wrapper {
+  text-align: right;
+}
+
+.currency-converter__button {
+  min-width: 382px;
+}

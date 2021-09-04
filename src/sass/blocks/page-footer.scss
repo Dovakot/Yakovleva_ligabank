@@ -1,0 +1,26 @@
+.page-footer {
+  min-height: 224px;
+  padding-top: 48px;
+  padding-bottom: 30px;
+
+  background-color: $basic-light-blue;
+}
+
+.page-footer__container {
+  display: grid;
+  grid-template-columns: 293px 184px 440px 1fr;
+  grid-column-gap: 40px;
+  align-items: start;
+}
+
+.page-footer__nav {
+  margin-top: 7px;
+}
+
+.page-footer__contacts {
+  margin-top: 10px;
+}
+
+.page-footer__social {
+  margin-top: 12px;
+}

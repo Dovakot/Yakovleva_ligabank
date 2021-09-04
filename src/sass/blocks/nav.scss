@@ -1,0 +1,47 @@
+.nav {
+  display: grid;
+  grid-template-columns: 670px 1fr;
+}
+
+.nav__list {
+  @include list-unstyled;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &--user {
+    justify-content: flex-end;
+
+    .nav__item {
+      margin-right: 0;
+      margin-left: 25px;
+    }
+  }
+}
+
+.nav__item {
+  margin-top: 8px;
+  margin-right: 25px;
+}
+
+.nav__link {
+  display: block;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+  line-height: 19px;
+  color: $basic-black;
+
+  &[href]:hover {
+    opacity: 0.7;
+  }
+
+  &[href]:active {
+    opacity: 0.5;
+  }
+
+  &--active {
+    color: $basic-blue;
+    cursor: default;
+  }
+}

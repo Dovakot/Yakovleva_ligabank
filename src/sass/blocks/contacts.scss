@@ -1,0 +1,41 @@
+.contacts {
+  @include list-unstyled;
+
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: 76px;
+}
+
+.contacts__item {
+  font-weight: 500;
+
+  &--phone {
+    .contacts__link {
+      padding-left: 33px;
+    }
+
+    .contacts__text {
+      margin-left: 33px;
+    }
+  }
+}
+
+.contacts__link {
+  &:hover {
+    color: $basic-blue;
+
+    svg {
+      fill: $basic-blue;
+    }
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.contacts__text {
+  @include small-text;
+
+  margin-left: 30px;
+}
