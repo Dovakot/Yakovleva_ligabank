@@ -1,14 +1,342 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="page" lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Лига Банк | Конвертер валют</title>
 
+    <link rel="preload" href="static/media/roboto.d93c1454.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="static/media/robotobold.18be91d1.woff2" as="font" type="font/woff2" crossorigin>
+
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" type="image/x-icon">
   </head>
-  <body>
+  <body class="page__body">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="visually-hidden" id="root"></div>
+
+    <header class="page-header">
+      <div class="container page-header__container">
+        <a class="page-logo">
+          <img src="img/logo-ligabank.svg" width="149" height="25" alt="ЛИГА Банк">
+        </a>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#">Услуги</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Рассчитать кредит</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--active">Конвертер валют</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Задать вопрос</a>
+            </li>
+          </ul>
+          <ul class="nav__list nav__list--user">
+            <li class="nav__item">
+              <a class="link-icon nav__link" href="#">
+                <svg width="20" height="22" aria-hidden="true" focusable="false">
+                  <use xlink:href="img/sprite.svg#icon-login"></use>
+                </svg>
+                Войти в Интернет-банк
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <h1 class="visually-hidden">Интернет-банк: Лига Банк</h1>
+
+      <section class="sales-pitch page-main__sales-pitch">
+        <h2 class="visually-hidden">Кредитное предложение</h2>
+
+        <div class="sales-pitch__wrapper">
+          <p class="sales-pitch__name">Лига Банк</p>
+          <p class="sales-pitch__slogan">Кредиты на любой случай</p>
+          <a class="button button--secondary" href="#">Рассчитать кредит</a>
+        </div>
+      </section>
+
+      <section class="container currency-converter page-main__currency-converter">
+        <h2 class="title currency-converter__title">Конвертер валют</h2>
+
+        <form class="currency-converter__form" action="#">
+          <fieldset class="currency-converter__fieldset">
+            <legend class="visually-hidden">Данные для конвертации</legend>
+
+            <label class="form-input form-input--amount">
+              <span class="form-input__label">У меня есть</span>
+              <input class="form-input__field" type="number" name="amount-available" value="1000" min="0" step="any" placeholder="0">
+            </label>
+            <label class="form-input form-input--select">
+              <span class="visually-hidden">Валюта</span>
+              <select class="form-input__field" name="available-currency">
+                <option value="RUB">RUB</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBR">GBR</option>
+                <option value="CNY">CNY</option>
+              </select>
+
+              <svg class="form-input__icon" width="18" height="11" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-arrow-down"></use>
+              </svg>
+            </label>
+          </fieldset>
+
+          <svg class="currency-converter__icon" width="54" height="36" aria-hidden="true" focusable="false">
+            <use xlink:href="img/sprite.svg#icon-arrows"></use>
+          </svg>
+
+          <fieldset class="currency-converter__fieldset">
+            <legend class="visually-hidden">Данные для конвертации</legend>
+
+            <label class="form-input form-input--amount">
+              <span class="form-input__label">Хочу приобрести</span>
+              <input class="form-input__field" type="number" name="purchase-amount" value="13.1234" min="0" step="any" placeholder="0">
+            </label>
+            <label class="form-input form-input--select">
+              <span class="visually-hidden">Валюта</span>
+              <select class="form-input__field" name="purchase-currency">
+                <option value="RUB">RUB</option>
+                <option value="USD" selected>USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBR">GBR</option>
+                <option value="CNY">CNY</option>
+              </select>
+
+              <svg class="form-input__icon" width="18" height="11" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-arrow-down"></use>
+              </svg>
+            </label>
+          </fieldset>
+          <fieldset class="currency-converter__fieldset">
+            <legend class="visually-hidden">Дата конвертации</legend>
+
+            <label class="form-input form-input--calendar">
+              <span class="visually-hidden">Календарь</span>
+              <input class="form-input__field" type="text" name="calendar" value="1.12.2020" readonly>
+
+              <svg class="form-input__icon" width="42" height="45" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-calendar"></use>
+              </svg>
+            </label>
+          </fieldset>
+
+          <div class="currency-converter__wrapper">
+            <button class="button currency-converter__button" type="button">Сохранить результат</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="container conversion-history page-main__conversion-history">
+        <h2 class="conversion-history__title">История конвертации</h2>
+
+        <div class="conversion-history__container conversion-history__container--separator">
+          <div class="conversion-history__wrapper">
+            <table class="conversion-history__table">
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+            </table>
+          </div>
+          <div class="conversion-history__wrapper">
+            <table class="conversion-history__table conversion-history__table--right">
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+              <tr>
+                <td>25.11.2020</td>
+                <td>1000 RUB</td>
+                <td>
+                  <svg width="42" height="18" aria-hidden="true" focusable="false">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </td>
+                <td>13,1234 USD</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <button class="button button--small conversion-history__button" type="button">Очистить историю</button>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container page-footer__container">
+        <div class="copyright">
+          <a class="page-logo copyright__logo">
+            <img src="img/logo-ligabank.svg" width="149" height="25" alt="ЛИГА Банк">
+          </a>
+          <p class="copyright__text">
+            150015, г. Москва, ул. Московская, д. 32<br>
+            Генеральная лицензия Банка России №1050<br>
+            &#9400; Лига Банк, 2019
+          </p>
+        </div>
+
+        <ul class="additional-nav page-footer__nav">
+          <li class="additional-nav__item">
+            <a class="additional-nav__link" href="#">Услуги</a>
+          </li>
+          <li class="additional-nav__item">
+            <a class="additional-nav__link" href="#">Рассчитать кредит</a>
+          </li>
+          <li class="additional-nav__item">
+            <a class="additional-nav__link" href="#">Контакты</a>
+          </li>
+          <li class="additional-nav__item">
+            <a class="additional-nav__link" href="#">Задать вопрос</a>
+          </li>
+        </ul>
+        <ul class="contacts page-footer__contacts">
+          <li class="contacts__item">
+            <a class="link-icon contacts__link" href="tel:*0904">
+              <svg width="10" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-mobile-phone"></use>
+              </svg>
+              *0904
+            </a>
+            <p class="contacts__text">
+              Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2
+            </p>
+          </li>
+          <li class="contacts__item contacts__item--phone">
+            <a class="link-icon contacts__link" href="tel:88001112233">
+              <svg width="16" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-phone"></use>
+              </svg>
+              8 800 111 22 33
+            </a>
+            <p class="contacts__text">
+              Бесплатный для всех городов России
+            </p>
+          </li>
+        </ul>
+        <ul class="social page-footer__social">
+          <li class="social__item">
+            <a class="social__link" href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+              <svg width="9" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+              <svg width="16" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://twitter.com/" target="_blank" aria-label="Twitter">
+              <svg width="16" height="13" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+              <svg width="16" height="13" aria-hidden="true" focusable="false">
+                <use xlink:href="img/sprite.svg#icon-youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
