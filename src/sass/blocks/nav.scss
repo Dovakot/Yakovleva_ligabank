@@ -32,16 +32,16 @@
   line-height: 19px;
   color: $basic-black;
 
-  &[href]:hover {
+  &:hover {
     opacity: 0.7;
   }
 
-  &[href]:active {
+  &:active {
     opacity: 0.5;
   }
 
   &--active {
     color: $basic-blue;
-    cursor: default;
+    pointer-events: none;
   }
 }

@@ -4,9 +4,6 @@
 }
 
 .page__body {
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  align-content: start;
   min-width: 1366px;
   min-height: 100%;
   margin: 0;
@@ -19,4 +16,11 @@
   color: $basic-black;
 
   background-color: $basic-white;
+}
+
+.page__root {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
+  min-height: 100vh;
 }

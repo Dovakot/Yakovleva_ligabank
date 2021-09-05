@@ -1,11 +1,15 @@
 .page-logo {
   display: inline-flex;
 
-  &[href]:hover {
+  &:hover {
     opacity: 0.7;
   }
 
-  &[href]:active {
+  &:active {
     opacity: 0.5;
+  }
+
+  &--active {
+    pointer-events: none;
   }
 }
