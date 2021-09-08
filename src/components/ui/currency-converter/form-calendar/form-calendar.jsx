@@ -1,36 +1,60 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from 'react-redux';
+import DatePicker, {registerLocale} from 'react-datepicker';
+import ru from 'date-fns/locale/ru';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import SvgIcon from '../../svg-icon/svg-icon';
 import {IconType} from '../../../../const';
+import {isCurrentDate, getSubDays} from '../../../../utils';
+import fetchCurrencyRate from '../../../../store/api-actions/api-actions';
+import {getCurrentDate, getRateData} from '../../../../store/reducers/converter-data/selectors';
+import {changeDate, setLoadState} from '../../../../store/actions/converter-actions/converter-actions';
 
-function FormCalendar({defaultValue}) {
+import CalendarInput from './calendar-input/calendar-input';
+
+registerLocale('ru', ru);
+
+function FormCalendar() {
+  const dispatch = useDispatch();
+  const currentDate = useSelector(getCurrentDate);
+  const {from, to} = useSelector(getRateData);
+
+  const minDate = getSubDays();
+  const maxDate = new Date();
+
+  const handleDatePickerChange = (date) => {
+    if (isCurrentDate(date, currentDate)) {
+      return;
+    }
+
+    dispatch(changeDate(date));
+    dispatch(setLoadState(true));
+    dispatch(fetchCurrencyRate(date, from.currency, to.currency));
+  };
+
   return (
     <fieldset className="currency-converter__fieldset">
       <legend className="visually-hidden">Дата конвертации</legend>
 
-      <label className="form-input form-input--calendar">
-        <span className="visually-hidden">Календарь</span>
-
-        <input
-          className="form-input__field"
-          type="text"
-          name="calendar"
-          defaultValue={defaultValue}
-          readOnly
+      <div className="form-input form-input--calendar">
+        <DatePicker
+          selected={currentDate}
+          minDate={minDate}
+          maxDate={maxDate}
+          customInput={<CalendarInput />}
+          dateFormat="d.MM.yyyy"
+          locale="ru"
+          onChange={handleDatePickerChange}
         />
 
         <SvgIcon
           className="form-input__icon"
           icon={IconType.CALENDAR}
         />
-      </label>
+      </div>
     </fieldset>
   );
 }
-
-FormCalendar.propTypes = {
-  defaultValue: PropTypes.string.isRequired,
-};
 
 export default FormCalendar;

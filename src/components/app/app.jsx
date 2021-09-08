@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {AppRoute} from '../../const';
 
@@ -9,37 +11,41 @@ import NotFound from '../pages/not-found/not-found';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path={AppRoute.ROOT} exact>
-          <Main />
-        </Route>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path={AppRoute.ROOT} exact>
+            <Main />
+          </Route>
 
-        <Route path={AppRoute.SERVICES} exact>
-          <BasePage title="Услуги" />
-        </Route>
+          <Route path={AppRoute.SERVICES} exact>
+            <BasePage title="Услуги" />
+          </Route>
 
-        <Route path={AppRoute.CALCULATOR} exact>
-          <BasePage title="Рассчитать кредит" />
-        </Route>
+          <Route path={AppRoute.CALCULATOR} exact>
+            <BasePage title="Рассчитать кредит" />
+          </Route>
 
-        <Route path={AppRoute.CONTACTS} exact>
-          <BasePage title="Контакты" />
-        </Route>
+          <Route path={AppRoute.CONTACTS} exact>
+            <BasePage title="Контакты" />
+          </Route>
 
-        <Route path={AppRoute.SUPPORT} exact>
-          <BasePage title="Задать вопрос" />
-        </Route>
+          <Route path={AppRoute.SUPPORT} exact>
+            <BasePage title="Задать вопрос" />
+          </Route>
 
-        <Route path={AppRoute.LOGIN} exact>
-          <BasePage title="Войти" />
-        </Route>
+          <Route path={AppRoute.LOGIN} exact>
+            <BasePage title="Войти" />
+          </Route>
 
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+
+      <ToastContainer />
+    </>
   );
 }
 

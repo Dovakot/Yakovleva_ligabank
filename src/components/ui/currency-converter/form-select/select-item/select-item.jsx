@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SelectItem({currency}) {
+function SelectItem({currency, currencyDisabled}) {
+  const isDisabled = currency === currencyDisabled;
+
   return (
-    <option value={currency}>
+    <option
+      value={currency}
+      disabled={isDisabled}
+    >
       {currency}
     </option>
   );
@@ -11,6 +16,7 @@ function SelectItem({currency}) {
 
 SelectItem.propTypes = {
   currency: PropTypes.string.isRequired,
+  currencyDisabled: PropTypes.string.isRequired,
 };
 
 export default SelectItem;
