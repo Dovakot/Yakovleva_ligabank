@@ -71,6 +71,11 @@
     outline: none;
     box-shadow: 0 0 4px 0 $basic-blue inset;
   }
+
+  &:invalid {
+    border-color: $special-red;
+    box-shadow: 0 0 4px 0 $special-red inset;
+  }
 }
 
 .form-input__icon {

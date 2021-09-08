@@ -8,6 +8,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 85px 120px;
+
+  &--load::before {
+    content: "";
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+
+    background-color: rgba($basic-light-blue, 0.3);
+    background-image: url("../../img/spinner.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px auto;
+  }
 }
 
 .currency-converter__fieldset {
